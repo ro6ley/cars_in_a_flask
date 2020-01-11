@@ -9,7 +9,7 @@ db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
 
-class Car(db.Model):
+class CarsModel(db.Model):
     __tablename__ = 'cars'
 
     id = db.Column(db.Integer, primary_key=True)
@@ -36,8 +36,8 @@ def handle_cars():
     if request.method == 'POST':
         if request.is_json:
             data = request.get_json()
-            new_car = Car(name=data['name'], model=data['model'], doors=data['doors'])
-            
+            new_car = CarsModel(name=data['name'], model=data['model'], doors=data['doors'])
+
             db.session.add(new_car)
             db.session.commit()
 
@@ -46,7 +46,7 @@ def handle_cars():
             return {"error": "The request payload is not in JSON format"}
 
     elif request.method == 'GET':
-        cars = Car.query.all()
+        cars = CarsModel.query.all()
         results = [
             {
                 "name": car.name,
@@ -59,7 +59,7 @@ def handle_cars():
 
 @app.route('/cars/<car_id>', methods=['GET', 'PUT', 'DELETE'])
 def handle_car(car_id):
-    car = Car.query.get_or_404(car_id)
+    car = CarsModel.query.get_or_404(car_id)
 
     if request.method == 'GET':
         response = {
