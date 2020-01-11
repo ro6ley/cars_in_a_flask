@@ -12,6 +12,7 @@ Thumbs.db
 
 # Compiled Python files
 *.pyc
+__pycache__
 
 # Application specific files
 env
