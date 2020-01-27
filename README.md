@@ -2,7 +2,7 @@
 
 # Cars in a Flask
 
-This repository contains the code for this [blogpost]().
+This repository contains the code for this [blogpost](https://stackabuse.com/using-sqlalchemy-with-flask-and-postgresql/).
 
 
 ## Getting Started
