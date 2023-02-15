@@ -15,4 +15,4 @@ python-dateutil==2.8.1
 python-editor==1.0.4
 pytz==2019.3
 six==1.13.0
-Werkzeug==0.16.0
+Werkzeug==2.2.3
